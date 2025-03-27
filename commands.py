@@ -1,5 +1,6 @@
 from utils import verify_user, check_token
 
+#Code 1 By Tech Shreyansh
 #@Client.on_message..........
 #async def start(...........
 
@@ -25,6 +26,7 @@ from utils import verify_user, check_token
                 protect_content=True
             )
 
+#Code 2 By Tech Shreyansh
 # new code from here :- 
 # where you want to add your verification 
 # this is the code where user get shortlink and verification message 
@@ -32,6 +34,8 @@ from utils import verify_user, check_token
 from utils import check_verification, get_token
 from info import VERIFY, VERIFY_TUTORIAL, BOT_USERNAME
 
+
+#Code 2 By Tech Shreyansh
 #@Client.on_message..........
 #async def...........
 
