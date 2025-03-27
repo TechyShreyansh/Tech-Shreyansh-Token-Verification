@@ -10,19 +10,19 @@ from utils import verify_user, check_token
         token = data.split("-", 3)[2]
         if str(message.from_user.id) != str(userid):
             return await message.reply_text(
-                text="<b>Invalid link or Expired link !</b>",
+                text="<b>⚠️ Invalid verification link format!</b>",
                 protect_content=True
             )
         is_valid = await check_token(client, userid, token)
         if is_valid == True:
             await message.reply_text(
-                text=f"<b>Hey {message.from_user.mention}, You are successfully verified !\nNow you have unlimited access for all files till today midnight.</b>",
+                text=f"<b>✅ Verification Successful!\n👋 Hello {message.from_user.mention},You now have full access until midnight.\n📂 You can now access all files.</b>",
                 protect_content=True
             )
             await verify_user(client, userid, token)
         else:
             return await message.reply_text(
-                text="<b>Invalid link or Expired link !</b>",
+                text="<b>⌛ Verification link expired!\n\nPlease generate a new verification link !</b>",
                 protect_content=True
             )
 
@@ -46,7 +46,7 @@ from info import VERIFY, VERIFY_TUTORIAL, BOT_USERNAME
             InlineKeyboardButton("How To Open Link & Verify", url=VERIFY_TUTORIAL)
         ]]
         await message.reply_text(
-            text="<b>You are not verified !\nKindly verify to continue !</b>",
+            text="<b>🔒 Verification Required\n\nYou need to verify before accessing files!\nClick below to verify:</b>",
             protect_content=True,
             reply_markup=InlineKeyboardMarkup(btn)
         )
