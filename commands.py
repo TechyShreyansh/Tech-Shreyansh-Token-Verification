@@ -41,12 +41,12 @@ from info import VERIFY, VERIFY_TUTORIAL, BOT_USERNAME
 
     if not await check_verification(client, message.from_user.id) and VERIFY == True:
         btn = [[
-            InlineKeyboardButton("Verify", url=await get_token(client, message.from_user.id, f"https://telegram.me/{BOT_USERNAME}?start="))
+            InlineKeyboardButton("🔐 Verify Now", url=await get_token(client, message.from_user.id, f"https://telegram.me/{BOT_USERNAME}?start="))
         ],[
-            InlineKeyboardButton("How To Open Link & Verify", url=VERIFY_TUTORIAL)
+            InlineKeyboardButton("❓ How To Verify", url=VERIFY_TUTORIAL)
         ]]
         await message.reply_text(
-            text="<b>🔒 Verification Required\n\nYou need to verify before accessing files!\nClick below to verify:</b>",
+            text="<b>🔒 VERIFICATION REQUIRED</b>\n\nYou must verify before accessing any files!\n\n<i>Click the button below to verify:</i>",
             protect_content=True,
             reply_markup=InlineKeyboardMarkup(btn)
         )
